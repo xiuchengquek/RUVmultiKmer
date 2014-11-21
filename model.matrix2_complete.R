@@ -2,7 +2,6 @@
 
 ## multipleExpression is a class object with the following slot
 setClass("multipleExpression", representation(
-                                  kmer="numeric",
                                   set="SeqExpressionSet",
                                   model="list",
                                   fits="list",

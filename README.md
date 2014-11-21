@@ -22,7 +22,7 @@ the normalization step in RUVSeq </br>
   RuvRset <- RUVr(set, genes, k=3, res)
 
   ## initialize your new "multipleExpression" object
-  multipleSet <- new("multipleExpression", kmer=3, set=RuvRset, classification=x)
+  multipleSet <- new("multipleExpression", set=RuvRset, classification=x)
   multipleSet <- model.matrix.all(multipleSet)
 
   ##conduct DGE, return a list DGEGLM object in the slot "fits"
