@@ -90,3 +90,28 @@ To run the test
 ```bash
    Rscript run_test.R
 ```
+
+
+Essentially the test will compare the following outputs. Similar for conductDGE :
+
+
+```R
+  mock_set4 <- RUVr(set, genes, k=3, res)
+
+  # create model for each of the kmers
+  k_1 <- model.matrix(~0 + x + W_1, data=pData(mock_set4))
+  k_2 <- model.matrix(~0 + x + W_1 + W_2, data=pData(mock_set4))
+  k_3 <- model.matrix(~0 + x + W_1 + W_2 + W_3, data=pData(mock_set4))
+
+  ## initialize our class
+  testset <- new("multipleExpression", set=mock_set4, classification=x)
+  testset <- model.matrix.all(testset)
+
+  #
+  test.model.matrix.all <- function() {
+    checkEquals(testset@model[[1]], k_1);
+    checkEquals(testset@model[[2]], k_2);
+    checkEquals(testset@model[[3]], k_3);
+  }
+
+```

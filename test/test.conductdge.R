@@ -27,7 +27,7 @@ set <-newSeqExpressionSet(as.matrix(filtered), phenoData = data.frame(x,
   k_3 <- model.matrix(~0 + x + W_1 + W_2 + W_3, data=pData(mock_set4))
 
   ## initialize our class
-  testset <- new("multipleExpression", kmer=3, set=mock_set4, classification=x)
+  testset <- new("multipleExpression", set=mock_set4, classification=x)
   testset <- model.matrix.all(testset)
 
   #
