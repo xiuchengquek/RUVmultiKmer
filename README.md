@@ -33,6 +33,14 @@ the normalization step in RUVSeq </br>
 
 ```
 
+### Issue 
+
+Colnames of design matrix is different if object for classification called 'x'. Snap!.
+
+To replicate the problem
+```bash
+Rscript run_error.R
+```
 
 ### Implementation
 
