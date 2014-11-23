@@ -10,7 +10,7 @@ source('conductMultipleDGE.R')
 
 
 testsuite.testSuiteMutliple <- defineTestSuite("testSuiteMutliple",
-                  dir=file.path('test'), testFileRegexp = '*.R')
+                  dir=file.path('test'), testFileRegexp = 'test.classification.*.R')
 
 test.result <- runTestSuite(testsuite.testSuiteMutliple)
 printTextProtocol(test.result)

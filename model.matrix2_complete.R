@@ -19,7 +19,7 @@ setMethod('model.matrix.all', c(set="multipleExpression"),
       baseModel <- model.matrix(~0 + x, data=df);
 
       ## add in the coefficient
-      message(coefficient)
+      message(df)
       coefficient_values <- as.matrix(df[2:coefficient])
       reBasedModel <- cbind(baseModel,  coefficient_values)
 
