@@ -14,7 +14,8 @@ setMethod('model.matrix.all', c(set="multipleExpression"),
 
   function(set){
 
-    constructFitting <- function (coefficient, df){
+    constructFitting <- function (coefficient, df, classification){
+      x <- classification
       ## construct basic design matrix without including the cofficient
       baseModel <- model.matrix(~0 + x, data=df);
 
@@ -37,9 +38,9 @@ setMethod('model.matrix.all', c(set="multipleExpression"),
     x <- pData(set@set);
     columns <- ncol(x);
     coefficients <- 2:columns;
-
+    classification <-set@classification
     ## return a list of fits
-    designMatrices = lapply(coefficients, constructFitting, df = x);
+    designMatrices = lapply(coefficients, constructFitting, df = x, classification=classification);
 
     slot(set, 'model', check=TRUE) = designMatrices;
     return(set)
